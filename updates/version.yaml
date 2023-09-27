@@ -1,0 +1,10 @@
+1.0.1: First version of TrainingCorner
+1.0.2:
+  - 'Created table pensoft_trainingcorner_trainings'
+  - create_trainingcorner_trainings_table.php
+1.0.3:
+  - 'Created table pensoft_trainingcorner_documents'
+  - create_trainingcorner_documents_table.php
+1.0.4:
+  - 'Created table pensoft_trainingcorner_videos'
+  - create_trainingcorner_videos_table.php

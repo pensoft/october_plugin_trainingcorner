@@ -1,0 +1,67 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Title
+        span: left
+        type: text
+    date:
+        label: Date
+        mode: date
+        type: datepicker
+        span: right
+        required: true
+    documents:
+        label: Documents
+        type: repeater
+        prompt: 'Add a document'
+        span: left
+        form:
+            fields:
+                name:
+                    label: Title
+                    type: text
+                    span: full
+                    required: true
+                cover:
+                    label: Cover
+                    span: right
+                    mode: image
+                    fileTypes: 'svg,png,jpg'
+                    useCaption: true
+                    thumbOptions:
+                        mode: crop
+                        extension: auto
+                    imageWidth: '515'
+                    imageHeight: '289'
+                    type: fileupload
+                document:
+                    label: Document
+                    type: fileupload
+                    mode: file
+                    span: left
+                    required: true
+    videos:
+        label: Videos
+        type: repeater
+        prompt: 'Add a video'
+        span: right
+        form:
+            fields:
+                name:
+                    label: Title
+                    type: text
+                    span: full
+                    required: true
+                video:
+                    label: Video
+                    span: full
+                    mode: file
+                    useCaption: true
+                    thumbOptions:
+                        mode: crop
+                        extension: auto
+                    required: 0
+                    type: fileupload
