@@ -25,7 +25,11 @@
                     {{ document.name }}
                 </div>
                 <div class="document-cover">
+                    {% if document.slideshare %}
+                    <iframe src="{{ document.slideshare }}" width="100%" height="290" frameborder="0" scrolling="no"></iframe>
+                {% else %}
                     <img src="{{ document.cover.getThumb(515, 290, { mode : 'crop' } ) }}" alt="{{ document.name }}">
+                {% endif %}
                 </div>
                 <div class="document-button">
                     <a href="{{ document.document.getPath }}" class="btn-primary btn-download" download>Download</a>

@@ -8,3 +8,6 @@
 1.0.4:
   - 'Created table pensoft_trainingcorner_videos'
   - create_trainingcorner_videos_table.php
+1.0.5:
+  - 'Updated table pensoft_trainingcorner_documents'
+  - update_trainingcorner_documents_table.php

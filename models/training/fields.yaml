@@ -25,6 +25,11 @@ fields:
                     type: text
                     span: full
                     required: true
+                slideshare:
+                    label: SlideShare Embed URL
+                    type: text
+                    span: full
+                    required: false
                 cover:
                     label: Cover
                     span: right
