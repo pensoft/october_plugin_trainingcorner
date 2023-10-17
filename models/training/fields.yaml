@@ -26,7 +26,7 @@ fields:
                     span: full
                     required: true
                 slideshare:
-                    label: SlideShare Embed URL
+                    label: 'SlideShare Embed URL'
                     type: text
                     span: full
                     required: false

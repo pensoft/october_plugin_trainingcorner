@@ -20,3 +20,4 @@ class UpdateTrainingCornerDocumentsTable extends Migration
         });
     }
 }
+
