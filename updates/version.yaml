@@ -11,3 +11,5 @@
 1.0.5:
   - 'Updated table pensoft_trainingcorner_documents'
   - update_trainingcorner_documents_table.php
+1.0.6:
+  - 'Fixed fullscreen on slideshares'

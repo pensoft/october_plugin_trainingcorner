@@ -22,6 +22,6 @@ class TrainingCorner extends ComponentBase
 
     protected function loadTrainings()
     {
-        return Training::all();
+        return Training::orderBy('date', 'desc')->get();
     }
 }
