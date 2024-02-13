@@ -1,14 +1,15 @@
 <?php namespace Pensoft\TrainingCorner\Models;
 
 use Model;
-
+use October\Rain\Database\Traits\Sortable;
 /**
  * Training Model
  */
 class Training extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-
+    use Sortable;
+    
     /**
      * @var string table associated with the model
      */
