@@ -9,7 +9,7 @@ class Training extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     use Sortable;
-    
+
     /**
      * @var string table associated with the model
      */
@@ -63,8 +63,14 @@ class Training extends Model
      */
     public $hasOne = [];
     public $hasMany = [
-        'documents' => 'Pensoft\TrainingCorner\Models\Documents',
-        'videos' => 'Pensoft\TrainingCorner\Models\Videos'
+        'videos' => [
+            'Pensoft\TrainingCorner\Models\Videos',
+            'order' => 'sort_order asc'
+        ],
+        'documents' => [
+            'Pensoft\TrainingCorner\Models\Documents',
+            'order' => 'sort_order asc'
+        ],
     ];
     public $belongsTo = [];
     public $belongsToMany = [];

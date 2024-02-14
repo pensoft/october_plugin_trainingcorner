@@ -1,6 +1,7 @@
 <?php namespace Pensoft\TrainingCorner\Models;
 
 use Model;
+use October\Rain\Database\Traits\Sortable;
 
 /**
  * Videos Model
@@ -8,6 +9,7 @@ use Model;
 class Videos extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use Sortable;
 
     /**
      * @var string table associated with the model
@@ -22,7 +24,7 @@ class Videos extends Model
     /**
      * @var array fillable attributes are mass assignable
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'video', 'sort_order', 'training_id'];
 
     /**
      * @var array rules for validation
@@ -71,4 +73,10 @@ class Videos extends Model
         'video' => 'System\Models\File'
     ];
     public $attachMany = [];
+
+    public function getSortOrderColumn()
+    {
+        return 'sort_order';
+    }
+    
 }

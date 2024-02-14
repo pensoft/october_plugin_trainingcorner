@@ -22,6 +22,11 @@ class TrainingCorner extends ComponentBase
 
     protected function loadTrainings()
     {
-        return Training::orderBy('sort_order')->get();
+        /* get documents and video sorted by the specified order in the backend form **/
+        return Training::with(['videos' => function($query) {
+            $query->orderBy('sort_order', 'asc');
+        }, 'documents' => function($query) {
+            $query->orderBy('sort_order', 'asc');
+        }])->orderBy('sort_order')->get();
     }
 }

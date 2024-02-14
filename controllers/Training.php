@@ -38,4 +38,5 @@ class Training extends Controller
 
         BackendMenu::setContext('Pensoft.TrainingCorner', 'trainingcorner', 'training');
     }
+    
 }
