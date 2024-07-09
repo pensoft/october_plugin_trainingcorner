@@ -1,58 +1,23 @@
 <div class="container">
-    {% for training in __SELF__.trainings %}
-    <div class="training-container">
-        <div class="row d-flex ui-accordion-header training-head flex-container">
-            <div class="record-date">
-
-                    {{ training.date|date("d.m.Y") }}
-
-            </div>
-            <div class="record-title">
-
-                    {{ training.name }}
-
-            </div>
-            <div class="plusminus">
-                <span class="plus">
-
-                </span>
-            </div>
-        </div>
-        <div class="training-body row between-xs" style="display: none;">
-            {% for document in training.documents %}
-            <div class="col-md-6 col-xs-12 document-content">
-                <div class="document-title">
-                    {{ document.name }}
-                </div>
-                <div class="document-cover">
-                    {% if document.slideshare %}
-                        <iframe src="{{ document.slideshare }}" width="100%" height="290" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                    {% else %}
-                        <img src="{{ document.cover.getThumb(515, 290, { mode : 'crop' } ) }}" alt="{{ document.name }}">
-                    {% endif %}
-                </div>
-                <div class="document-button">
-                    <a href="{{ document.document.getPath }}" class="btn-primary btn-download" download>Download</a>
-                </div>
-            </div>
-            {% endfor %}
-            {% for video in training.videos %}
-            <div class="col-md-6 col-xs-12 video-content">
-                <div class="video-title">
-                    {{ video.name }}
-                </div>
-                <div class="video-cover">
-                    <video controls>
-                        <source src="{{ video.video.getPath }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="video-button">
-                    <a href="{{ video.video.getPath }}" class="btn-primary btn-download" download>Download</a>
-                </div>
-            </div>
-            {% endfor %}
+    <div class="search-bar">
+        <div class="search-wrapper">
+            <input type="text" id="trainingSearch" placeholder="Search trainings...">
+            <button class="btn" onclick="searchTrainings()"></button>
         </div>
     </div>
-    {% endfor %}
+    
+    <div id="trainingResults">
+        {% partial 'TrainingCorner::_trainings' trainings=__SELF__.trainings %}
+    </div>
+
 </div>
+
+<script>
+    function searchTrainings() {
+        var query = document.getElementById('trainingSearch').value;
+        $.request('onSearchRecords', {
+            data: { query: query },
+            // update: { '#trainingResults': '::TrainingCorner::_trainings' }
+        });
+    }
+</script>

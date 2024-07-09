@@ -20,13 +20,39 @@ class TrainingCorner extends ComponentBase
         $this->trainings = $this->loadTrainings();
     }
 
-    protected function loadTrainings()
+    public function onSearchRecords()
     {
-        /* get documents and video sorted by the specified order in the backend form **/
-        return Training::with(['videos' => function($query) {
-            $query->orderBy('sort_order', 'asc');
-        }, 'documents' => function($query) {
-            $query->orderBy('sort_order', 'asc');
-        }])->orderBy('sort_order')->get();
+        $query = input('query');
+        $this->trainings = $this->loadTrainings($query);
+        return [
+            '#trainingResults' => $this->renderPartial('TrainingCorner::_trainings', ['trainings' => $this->trainings])
+        ];
+    }
+
+    protected function loadTrainings($query = null)
+    {
+        {
+            $trainingsQuery = Training::with(['videos' => function($query) {
+                $query->orderBy('sort_order', 'asc');
+            }, 'documents' => function($query) {
+                $query->orderBy('sort_order', 'asc');
+            }])->orderBy('sort_order');
+    
+            if ($query) {
+                $trainingsQuery->where(function($q) use ($query) {
+                    $q->where('name', 'ILIKE', "%$query%")
+                      ->orWhere('summery', 'ILIKE', "%$query%")
+                      ->orWhere('keywords', 'ILIKE', "%$query%")
+                      ->orWhereHas('documents', function($q) use ($query) {
+                          $q->where('name', 'ILIKE', "%$query%");
+                      })
+                      ->orWhereHas('videos', function($q) use ($query) {
+                          $q->where('name', 'ILIKE', "%$query%");
+                      });
+                });
+            }
+    
+            return $trainingsQuery->get();
+        }
     }
 }

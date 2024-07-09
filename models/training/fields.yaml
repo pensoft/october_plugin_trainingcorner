@@ -9,6 +9,18 @@ fields:
         type: datepicker
         span: right
         required: true
+    summery:
+        label: Summery
+        span: auto
+        type: text
+    keywords:
+        label: Keywords
+        span: auto
+        type: text
+    url:
+        label: URL to the article
+        span: auto
+        type: text
     documents:
         label: Documents
         type: repeater

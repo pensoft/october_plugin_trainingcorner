@@ -25,3 +25,6 @@
 1.0.10:
     - 'Updated update_trainingcorner_documents_table_2'
     - update_trainingcorner_documents_table_2.php
+1.0.11:
+    - 'Updated pensoft_trainingcorner_trainings'
+    - builder_table_update_pensoft_trainingcorner_trainings_3.php
