@@ -15,7 +15,7 @@
         <div class="row training-body-intro">
             {% if training.summery %}
             <div class="col-md-9 col-xs-12 summery">
-                <span><span class="intro-h">Summery: </span>{{ training.summery }}</span>
+                <span><span class="intro-h">Summary: </span>{{ training.summery }}</span>
             </div>
             {% endif %}
             {% if training.url %}
@@ -29,6 +29,28 @@
             </div>
             {% endif %}
         </div>
+        {% for video in training.videos %}
+        <div class="col-md-6 col-xs-12 video-content">
+            <div class="video-title">
+                {{ video.name }}
+            </div>
+            <div class="video-cover">
+                {% if video.youtube_url %}
+                <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="{{video.youtube_url}}"></iframe>
+                {% else %}
+                <video controls>
+                    <source src="{{ video.video.getPath }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                {% endif %}
+            </div>
+            {% if video.video %}
+            <div class="video-button">
+                <a href="{{ video.video.getPath }}" class="btn-primary btn-download" download>Download</a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
         {% for document in training.documents %}
         <div class="col-md-6 col-xs-12 document-content">
             <div class="document-title">
@@ -43,22 +65,6 @@
             </div>
             <div class="document-button">
                 <a href="{{ document.document.getPath }}" class="btn-primary btn-download" download>Download</a>
-            </div>
-        </div>
-        {% endfor %}
-        {% for video in training.videos %}
-        <div class="col-md-6 col-xs-12 video-content">
-            <div class="video-title">
-                {{ video.name }}
-            </div>
-            <div class="video-cover">
-                <video controls>
-                    <source src="{{ video.video.getPath }}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="video-button">
-                <a href="{{ video.video.getPath }}" class="btn-primary btn-download" download>Download</a>
             </div>
         </div>
         {% endfor %}

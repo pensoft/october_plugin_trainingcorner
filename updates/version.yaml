@@ -28,3 +28,6 @@
 1.0.11:
     - 'Updated pensoft_trainingcorner_trainings'
     - builder_table_update_pensoft_trainingcorner_trainings_3.php
+1.0.12:
+    - 'Updated pensoft_trainingcorner_videos'
+    - update_trainingcorner_videos_table_2.php

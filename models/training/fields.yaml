@@ -68,6 +68,11 @@ fields:
                     type: text
                     span: full
                     required: true
+                youtube_url:
+                    label: YouTube URL
+                    type: text
+                    span: full
+                    required: false
                 video:
                     label: Video
                     span: full
