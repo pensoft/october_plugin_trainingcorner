@@ -3,28 +3,108 @@ fields:
         label: Title
         span: left
         type: text
-    date:
-        label: Date
+        comment: "Enter the name of the training"
+    start_date:
+        label: Start Date
+        mode: date
+        type: datepicker
+        span: left
+        required: true
+        comment: "Pick a start date for the training"
+    end_date:
+        label: End Date
         mode: date
         type: datepicker
         span: right
         required: true
+        comment: "Pick an end date for the training"
+    duration:
+        label: Duration
+        span: auto
+        type: text
+        comment: "Enter the duration of the training, ex: 1 week"
     summery:
         label: Summery
         span: auto
-        type: text
+        type: richeditor
+        comment: "Summery of the training, displayed on the training card and introduction"
+    about:
+        label: About
+        span: auto
+        type: richeditor
+        size: large
+        comment: "Enter the content for about section"
+    # content:
+    #     label: Content
+    #     span: auto
+    #     type: richeditor
+    #     comment: "Main content of the training with rich text formatting"
+    target_audience:
+        label: Target Audience
+        span: left
+        type: checkboxlist
+        options: getTargetAudienceOptions
+        comment: "Choose one or more target audiences"
+    topic:
+        label: Topic
+        span: right
+        type: checkboxlist
+        options: getTopicOptions
+        comment: "Choose one or more topics"
     keywords:
         label: Keywords
         span: auto
-        type: text
-    url:
-        label: URL to the article
+        type: checkboxlist
+        options: getKeywordsOptions
+        comment: "Choose one or more keywords. NOTE: This field handles filtration keywords"
+    organiser:
+        label: Organiser
         span: auto
         type: text
+        comment: "Enter the organiser/s"
+    training_keywords:
+        label: Training Keywords
+        span: auto
+        type: taglist
+        separator: comma
+        customTags: true
+        options: []
+        comment: "Enter the keywords for the training, use comma to separate them. NOTE: Those keywords are displayed on cards and within detailed page and are NOT used for filtration."
+    # url:
+    #     label: URL to the article
+    #     span: auto
+    #     type: text
+    cover_image:
+        label: Cover Image
+        type: fileupload
+        mode: image
+        span: left
+        fileTypes: "jpg,jpeg,png,gif,svg"
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        imageWidth: "800"
+        imageHeight: "450"
+        comment: "Cover image for detailed in About page, next to about text"
+    carousel_images:
+        label: Carousel Images
+        type: fileupload
+        mode: image
+        span: right
+        fileTypes: "jpg,jpeg,png,gif,svg"
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        imageWidth: "800"
+        imageHeight: "450"
+        comment: "Images displayed as carousel on card preview"
     documents:
         label: Documents
         type: repeater
-        prompt: 'Add a document'
+        comment: "Documents for the Relevant Documents section"
+        prompt: "Add a document"
         span: left
         form:
             fields:
@@ -33,53 +113,123 @@ fields:
                     type: text
                     span: full
                     required: true
-                slideshare:
-                    label: 'SlideShare Embed URL'
-                    type: text
-                    span: full
-                    required: false
-                cover:
-                    label: Cover
-                    span: right
-                    mode: image
-                    fileTypes: 'svg,png,jpg'
-                    useCaption: true
-                    thumbOptions:
-                        mode: crop
-                        extension: auto
-                    imageWidth: '515'
-                    imageHeight: '289'
-                    type: fileupload
+                # slideshare:
+                #     label: "SlideShare Embed URL"
+                #     type: text
+                #     span: full
+                #     required: false
+                # cover:
+                #     label: Cover
+                #     span: right
+                #     mode: image
+                #     fileTypes: "svg,png,jpg"
+                #     useCaption: true
+                #     thumbOptions:
+                #         mode: crop
+                #         extension: auto
+                #     imageWidth: "515"
+                #     imageHeight: "289"
+                #     type: fileupload
                 document:
                     label: Document
                     type: fileupload
                     mode: file
                     span: left
                     required: true
-    videos:
-        label: Videos
+                    comment: "Upload a document"
+    # videos:
+    #     label: Videos
+    #     type: repeater
+    #     prompt: "Add a video"
+    #     span: right
+    #     form:
+    #         fields:
+    #             name:
+    #                 label: Title
+    #                 type: text
+    #                 span: full
+    #                 required: true
+    #             youtube_url:
+    #                 label: YouTube URL
+    #                 type: text
+    #                 span: full
+    #                 required: false
+    #             video:
+    #                 label: Video
+    #                 span: full
+    #                 mode: file
+    #                 useCaption: true
+    #                 thumbOptions:
+    #                     mode: crop
+    #                     extension: auto
+    #                 required: 0
+    #                 type: fileupload
+
+    modules:
+        label: Modules
         type: repeater
-        prompt: 'Add a video'
+        comment: "Training modules for Course Content section"
+        prompt: "Add a module"
         span: right
         form:
             fields:
-                name:
+                module_name:
                     label: Title
                     type: text
-                    span: full
-                    required: true
-                youtube_url:
-                    label: YouTube URL
-                    type: text
+                module_text:
+                    label: Text
+                    type: richeditor
                     span: full
                     required: false
-                video:
-                    label: Video
-                    span: full
-                    mode: file
-                    useCaption: true
-                    thumbOptions:
-                        mode: crop
-                        extension: auto
-                    required: 0
+                module_videos:
+                    label: Videos
                     type: fileupload
+                    mode: file
+                    span: full
+                    required: false
+                    comment: "Upload multiple video files"
+                module_youtube_urls:
+                    label: YouTube Videos
+                    type: repeater
+                    prompt: "Add YouTube URL"
+                    span: full
+                    form:
+                        fields:
+                            url:
+                                label: YouTube URL
+                                type: text
+                                span: full
+                                required: true
+                                comment: "Enter the full YouTube URL"
+                            title:
+                                label: Video Title
+                                type: text
+                                span: full
+                                required: false
+                                comment: "Optional title for the video"
+                slideshares:
+                    label: SlideShares
+                    type: repeater
+                    prompt: "Add SlideShare"
+                    span: full
+                    form:
+                        fields:
+                            embed_url:
+                                label: SlideShare Embed URL
+                                type: text
+                                span: full
+                                required: true
+                                comment: "Enter the SlideShare embed URL"
+                            title:
+                                label: Presentation Title
+                                type: text
+                                span: full
+                                required: false
+                                comment: "Optional title for the presentation"
+                module_documents:
+                    label: Documents
+                    type: fileupload
+                    mode: file
+                    span: left
+                    required: true
+                    comment: "Upload a document, click on the uploaded file to select a title"
