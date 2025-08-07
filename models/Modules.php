@@ -135,7 +135,7 @@ class Modules extends Model
     }
 
     /**
-     * Check if SlideShare URL is embeddable
+     * Get SlideShare URL (expects valid embed format)
      */
     public function getEmbeddableSlideshareUrl($url)
     {
@@ -143,16 +143,19 @@ class Modules extends Model
             return null;
         }
 
-        // If it's already an embed URL, return as is
-        if (strpos($url, '/embed_code/') !== false || strpos($url, 'slideshare.net/slideshow/embed_code/') !== false) {
-            return $url;
+        // If it's already a full embed URL, extract the key and return clean embed URL
+        if (strpos($url, 'slideshare.net/slideshow/embed_code/key/') !== false) {
+            if (preg_match('/slideshare\.net\/slideshow\/embed_code\/key\/([a-zA-Z0-9]+)/', $url, $matches)) {
+                return 'https://www.slideshare.net/slideshow/embed_code/key/' . $matches[1];
+            }
         }
 
-        // Convert regular SlideShare URLs to embed format
-        if (preg_match('/slideshare\.net\/([^\/]+)\/([^\/?\s]+)/', $url, $matches)) {
-            return 'https://www.slideshare.net/slideshow/embed_code/key/' . $matches[2];
+        // If it's just the key, construct the full embed URL
+        if (preg_match('/^[a-zA-Z0-9]+$/', $url)) {
+            return 'https://www.slideshare.net/slideshow/embed_code/key/' . $url;
         }
 
+        // Return URL as-is if it doesn't match expected patterns
         return $url;
     }
 

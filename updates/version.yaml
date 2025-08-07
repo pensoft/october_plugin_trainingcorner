@@ -43,3 +43,6 @@
 1.0.16:
     - 'Added module_document_title field to pensoft_trainingcorner_modules table'
     - update_trainingcorner_modules_table.php
+1.0.17:
+    - 'Changed date column to nullable in pensoft_trainingcorner_trainings table'
+    - update_trainingcorner_trainings_table_4.php
