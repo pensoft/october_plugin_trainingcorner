@@ -46,3 +46,5 @@
 1.0.17:
     - 'Changed date column to nullable in pensoft_trainingcorner_trainings table'
     - update_trainingcorner_trainings_table_4.php
+1.0.18:
+    - 'Added SBSTTA 27 to training_keywords options'

@@ -18,11 +18,11 @@ fields:
         span: right
         required: true
         comment: "Pick an end date for the training"
-    duration:
-        label: Duration
-        span: auto
-        type: text
-        comment: "Enter the duration of the training, ex: 1 week"
+    # duration:
+    #     label: Duration
+    #     span: auto
+    #     type: text
+    #     comment: "Enter the duration of the training, ex: 1 week"
     summery:
         label: Summery
         span: auto

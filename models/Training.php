@@ -149,6 +149,7 @@ class Training extends Model
             'cop16' => 'COP16',
             'sbstta_25' => 'SBSTTA 25',
             'sbstta_26' => 'SBSTTA 26',
+            'sbstta_27' => 'SBSTTA 27',
             'central_eastern_europe' => 'Central and Eastern Europe',
             'northern_europe' => 'Northern Europe',
             'european_union' => 'European Union',
