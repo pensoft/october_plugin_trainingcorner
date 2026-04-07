@@ -1,0 +1,53 @@
+1.0.1: 'First version of TrainingCorner'
+1.0.2:
+    - 'Created table pensoft_trainingcorner_trainings'
+    - create_trainingcorner_trainings_table.php
+1.0.3:
+    - 'Created table pensoft_trainingcorner_documents'
+    - create_trainingcorner_documents_table.php
+1.0.4:
+    - 'Created table pensoft_trainingcorner_videos'
+    - create_trainingcorner_videos_table.php
+1.0.5:
+    - 'Updated table pensoft_trainingcorner_documents'
+    - update_trainingcorner_documents_table.php
+1.0.6:
+    - 'Fixed fullscreen on slideshares'
+1.0.7:
+    - 'update_trainingcorner_trainings_table'
+    - update_trainingcorner_trainings_table.php
+1.0.8:
+    - 'Updated table pensoft_trainingcorner_trainings'
+    - builder_table_update_pensoft_trainingcorner_trainings.php
+1.0.9:
+    - 'Updated update_trainingcorner_videos_table'
+    - update_trainingcorner_videos_table.php
+1.0.10:
+    - 'Updated update_trainingcorner_documents_table_2'
+    - update_trainingcorner_documents_table_2.php
+1.0.11:
+    - 'Updated pensoft_trainingcorner_trainings'
+    - builder_table_update_pensoft_trainingcorner_trainings_3.php
+1.0.12:
+    - 'Updated pensoft_trainingcorner_videos'
+    - update_trainingcorner_videos_table_2.php
+1.0.13:
+    - 'Added new fields to pensoft_trainingcorner_trainings table'
+    - update_trainingcorner_trainings_table_2.php
+1.0.14:
+    - 'Added training_keywords field for comma-separated keywords'
+    - update_trainingcorner_trainings_table_3.php
+1.0.15:
+    - 'Added modules table with support for multiple videos, YouTube URLs, and slideshares'
+    - create_trainingcorner_modules_table.php
+1.0.16:
+    - 'Added module_document_title field to pensoft_trainingcorner_modules table'
+    - update_trainingcorner_modules_table.php
+1.0.17:
+    - 'Changed date column to nullable in pensoft_trainingcorner_trainings table'
+    - update_trainingcorner_trainings_table_4.php
+1.0.18:
+    - 'Added SBSTTA 27 to training_keywords options'
+
+4.0.1:
+    - 'Migrated to OctoberCMS 4 and PHP 8.2'

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Training
+
+# Model Form Field configuration
+form: $/pensoft/trainingcorner/models/training/fields.yaml
+
+# Model Class name
+modelClass: Pensoft\TrainingCorner\Models\Training
+
+# Default redirect location
+defaultRedirect: pensoft/trainingcorner/training
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: pensoft/trainingcorner/training/update/:id
+    redirectClose: pensoft/trainingcorner/training
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: pensoft/trainingcorner/training
+    redirectClose: pensoft/trainingcorner/training
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

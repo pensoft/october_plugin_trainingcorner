@@ -1,0 +1,23 @@
+<!-- <div class="container">
+    <div class="search-bar">
+        <div class="search-wrapper">
+            <input type="text" id="trainingSearch" placeholder="Search trainings...">
+            <button class="btn" onclick="searchTrainings()"></button>
+        </div>
+    </div>
+    
+    <div id="trainingResults">
+        {% partial 'TrainingCorner::_trainings' trainings=__SELF__.trainings %}
+    </div>
+
+</div>
+
+<script>
+    function searchTrainings() {
+        var query = document.getElementById('trainingSearch').value;
+        $.request('onSearchRecords', {
+            data: { query: query },
+            // update: { '#trainingResults': '::TrainingCorner::_trainings' }
+        });
+    }
+</script> -->
